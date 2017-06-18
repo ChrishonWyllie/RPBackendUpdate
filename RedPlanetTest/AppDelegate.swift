@@ -19,42 +19,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
-        // Enable LocalDataStore()
-        Parse.enableLocalDatastore()
         
-        /*
-         MARK: - Parse; Client Configuration
-         • AWS EC2 Instance Server
-         • Database hosted on MLAB
-         */
-        let configuration = ParseClientConfiguration {
-            $0.applicationId = "mvFumzoAGYENJ0vOKjKB4icwSCiRiXqbYeFs29zk"
-            $0.clientKey = "f3YjXEEzQYU8jJq7ZQIASlqxSgDr0ZmpfYUMFPuS"
-            $0.server = "http://parseserver-48bde-env.us-east-1.elasticbeanstalk.com/parse/"
-        }
-        Parse.initialize(with: configuration)
-        
-        loginWithParse()
         
         return true
     }
     
-    private func loginWithParse() {
-        PFUser.logInWithUsername(inBackground: "chrisw",
-                                 password: "password") {
-                                    (user: PFUser?, error: Error?) in
-                                    if user != nil {
-                                        
-                                        //print("logged in successfully")
-                                        //print("user object: \(String(describing: user))")
-                                        
-                                    } else {
-                                        print(error?.localizedDescription as Any)
-                                        // Show error
-                                        //self.showError()
-                                    }
-        }
-    }
+   
     
 
     func applicationWillResignActive(_ application: UIApplication) {
